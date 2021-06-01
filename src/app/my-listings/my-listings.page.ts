@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-my-listings',
   templateUrl: './my-listings.page.html',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyListingsPage implements OnInit {
 
-  constructor() { }
+  constructor( private router:Router) { }
+
+  getaddform(){
+    this.router.navigate(['my-listings-add']);
+  }
 
   ngOnInit() {
   }
