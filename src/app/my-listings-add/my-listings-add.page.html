@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>my-listings-add</ion-title>
+  <ion-toolbar color="primary" class="addlist">
+    <ion-title class="adlisttitle">Add Your list</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="my-listings"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="imageshow">
+    <img src="assets/noimage.jpg">
+  </div>
 
+  <div class="inputtextarea1">
+    <ion-item>
+      <ion-textarea placeholder="Enter product name here..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <div class="inputtextarea2">
+    <ion-item>
+      <ion-textarea placeholder="Enter product description here..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <div class="inputtextarea3">
+    <ion-item>
+      <ion-textarea placeholder="Enter product prize here..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <div>
+    <ion-button (click)="actionsheet()" expand ="block" shape="round"> click here</ion-button>
+  </div>
+
+    
+
+    
 </ion-content>

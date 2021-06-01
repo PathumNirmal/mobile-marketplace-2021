@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>my-listings</ion-title>
+  <ion-toolbar color="primary" class="listmenu">
+    <ion-title>mylistings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content></ion-content>
 
-</ion-content>
+<ion-footer>
+<div class="footerbutton">
+<ion-button full round (click)='getaddform()'> Add New Item </ion-button>
+</div>
+</ion-footer>
