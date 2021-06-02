@@ -1,21 +1,27 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar id="head">
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="images">
-    <div class="image" *ngFor="let post of (userData | async)?.posts">
-      <ion-card>
-        <ion-image src="https://ucarecdn.com/{{ post.image }}/-/crop/200x200/center/"></ion-image>
-      </ion-card>
-      <ion-content>
-        <p>{{ post.desc }}</p>
-      </ion-content>
-    </div>
-  </div>
+  
   <form #loginForm="ngForm">
+    
+    <ion-toolbar class="upload">
+      <ion-buttons>
+
+        <button ion-button icon-left (click)="presentActionSheet()" class="btn1">
+          <ion-icon name="camera"></ion-icon>Select Image
+        </button>
+
+        <button ion-button icon-left (click)="uploadImage()" 
+        [disabled]="lastImage=== null" class="btn2">
+          <ion-icon name="cloud-upload"></ion-icon>Upload
+        </button>
+
+      </ion-buttons>
+    </ion-toolbar>
     <ion-list lines="none">
       <ion-item lines="none">
         <p class="intro">Name</p>

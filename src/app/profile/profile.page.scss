@@ -1,6 +1,23 @@
-ion-toolbar{
-    --background:blue
+
+#head{
+    --background:blue;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
 }
-ion-header,ion-toolbar,ion-toolbar{
-    color:white
+
+.upload{
+    background-color: antiquewhite;
+}
+
+.btn1{
+    margin: 25px;
+    padding: 10px;
+    align-items: center;
+}
+
+.btn2{
+    margin: 25px;
+    padding: 10px;
+    align-items: center;
 }
