@@ -10,16 +10,31 @@
 
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Cucumber</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
-    </ion-card-header>
-  
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
+      <ion-item>
+        <div>
+          <img src="assets/mylistImage/Cucumbera.jpg">
+        </div>
+       <div class="labletext">
+        <ion-label >
+          <h3>Cucumbera</h3>
+          <p>Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant 
+            in the Cucurbitaceae gourd family that bears cucumiform fruits,
+             which are used as vegetables</p>
+             <h3></h3>
+        </ion-label>
+       </div>
+       
+        <div class="shoppingbutton">
+          <ion-button (click)="onClick()" fill="clear">
+            <ion-icon name="cart"></ion-icon>  
+          </ion-button>
+          </div>
+      </ion-item>
+    </ion-card-content>  
   </ion-card>
+
+  
 </ion-content>
 
 <ion-footer>
