@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-listings-add',
@@ -7,11 +8,20 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./my-listings-add.page.scss'],
 })
 export class MyListingsAddPage implements OnInit {
+  user: any ={};
+  //name:string;
 
-  constructor(public actionSheet: ActionSheetController) {}
+
+
+  constructor(public actionSheet: ActionSheetController ,public router :Router) {}
 
   
   ngOnInit() {
+  }
+
+  getpublishdata(){
+   console.log(this.user);
+   //this.router.navigate(['my-listings']);
   }
   async actionsheet(){
     const actionsheetConst = await this.actionSheet.create({
@@ -19,6 +29,8 @@ export class MyListingsAddPage implements OnInit {
       cssClass:"my-custom-class",
       buttons :[{
         text:"Camera",
+      //  buttons: (ActionSheetButton | string)[],
+      
         //  role:
           icon:"camera",
         //  cssClass
@@ -50,5 +62,6 @@ export class MyListingsAddPage implements OnInit {
     })
 
   }
+
 
 }

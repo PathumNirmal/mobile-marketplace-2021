@@ -7,28 +7,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen] ="true">
   <div class="imageshow">
     <img src="assets/noimage.jpg">
   </div>
 
-  <div class="inputtextarea1">
+  <ion-item>
+    <ion-label position="floating">Enter Product Name</ion-label>
+    <ion-input  type ="text" [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+   
     <ion-item>
-      <ion-textarea class="txt1" placeholder="Enter product name here..."></ion-textarea>
+      <ion-label position="floating">Enter Product Price</ion-label>
+      <ion-input  type ="number" [(ngModel)]="user.Prize"></ion-input>
     </ion-item>
-  </div>
+  
 
-  <div class="inputtextarea2">
-    <ion-item>
-      <ion-textarea class="txt2" placeholder="Enter product description here..."></ion-textarea>
-    </ion-item>
-  </div>
-
-  <div class="inputtextarea3">
-    <ion-item>
-      <ion-textarea class="txt3" placeholder="Enter product prize here..."></ion-textarea>
-    </ion-item>
-  </div>
 
   <div>
     <ion-button class="click" (click)="actionsheet()" expand ="block" shape="round"> Choose product Image</ion-button>
@@ -41,7 +35,7 @@
 
 <ion-footer>
   <div class="footeraddbutton">
-    <ion-button shape="round" fill="solid">Done</ion-button>
+    <ion-button shape="round" fill="solid" (click)="getpublishdata()">Done</ion-button>
   </div>
   
 </ion-footer>
