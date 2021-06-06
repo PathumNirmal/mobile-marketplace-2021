@@ -3,6 +3,7 @@ import { IonSlides, ActionSheetController, NavController } from '@ionic/angular'
 import { Location } from '@angular/common';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,8 @@ export class RegisterPage implements OnInit {
     private navCtrl: NavController,
     public authService: AuthenticationService,
     private formBuilder: FormBuilder,
-
+    public photoService: PhotoService
+  
   ) {
 
    
@@ -47,6 +49,9 @@ export class RegisterPage implements OnInit {
     }
     });
   
+  }
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
   }
 
   sendEmailVerification() {
