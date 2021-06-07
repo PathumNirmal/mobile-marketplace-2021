@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { PhotoService } from '../services/photo.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -31,7 +31,8 @@ export class RegisterPage implements OnInit {
     private navCtrl: NavController,
     public authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    public photoService: PhotoService
+    public photoService: PhotoService,
+    private router:Router
   
   ) {
 
@@ -125,6 +126,12 @@ export class RegisterPage implements OnInit {
 
   goNext(){
     this.slides.slideNext(500).then(d=>console.log(d))
+  }
+  back(){
+    this.router.navigate(['login']);
+  }
+  guest(){
+    this.router.navigate(['tabs']);
   }
 
 }
