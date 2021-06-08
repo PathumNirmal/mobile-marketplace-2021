@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import {ModalController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-my-listings-add',
@@ -7,18 +10,34 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./my-listings-add.page.scss'],
 })
 export class MyListingsAddPage implements OnInit {
+  user: any ={};
+  Categories =['Vegetables','Fruits']
 
-  constructor(public actionSheet: ActionSheetController) {}
+  taskName
+  taskType
+  taskRate
+  //name:string;
+
+taskObject
+
+  constructor(public actionSheet: ActionSheetController ,public router :Router , public modalCtrl:ModalController) {}
 
   
   ngOnInit() {
   }
+
+ /* getpublishdata(){
+   console.log(this.user);
+   //this.router.navigate(['my-listings']);
+  }*/
   async actionsheet(){
     const actionsheetConst = await this.actionSheet.create({
       header:"Choose One",
       cssClass:"my-custom-class",
       buttons :[{
         text:"Camera",
+      //  buttons: (ActionSheetButton | string)[],
+      
         //  role:
           icon:"camera",
         //  cssClass
@@ -51,4 +70,20 @@ export class MyListingsAddPage implements OnInit {
 
   }
 
+  async dismiss(){
+    await this.modalCtrl.dismiss(this.taskObject)
+  }
+
+  selectType(index){
+    this.taskType = this.Categories[index]
+  }
+
+  AddTask(){
+    this.taskObject = ({itemName:this.taskName,
+                       itemType:this.taskType,
+                       itemRate:this.taskRate})
+        
+    this.dismiss()
+  }
+ 
 }

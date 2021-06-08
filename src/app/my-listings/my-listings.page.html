@@ -8,57 +8,29 @@
 
 </ion-header>
 
-<ion-content>
-  <ion-card class="cardstart">
-    <ion-card-content class="contentstart">
-      <ion-item>
-        <div class="image">
-          <img src="assets/mylistImage/Cucumbera.jpg">
-        </div>
-       <div class="labletext">
-        <ion-label >
-          <h3>Cucumbera</h3>
-             <h3> 1Kg = Rs 100</h3>
-        </ion-label>
-       </div>
-       
-        <div class="shoppingbutton">
-          <ion-button (click)="onClick()" fill="clear">
-            <ion-icon name="cart"></ion-icon>  
-          </ion-button>
-          </div>
-      </ion-item>
-    </ion-card-content>  
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let item of todolist">
+    <ion-card-header>
+      <ion-card-subtittle>
+        {{item.itemName}}
+      </ion-card-subtittle> 
+      
+    </ion-card-header>
+    <ion-card-content class="text11">
+      <ion-row>
+        <ion-item><ion-lable>{{item.itemType}}</ion-lable></ion-item>
+        <ion-item><ion-lable>{{item.itemRate}}</ion-lable></ion-item>
+      </ion-row>
+      
+    </ion-card-content>
   </ion-card>
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addTask()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
 
-
-  <ion-card class="cardstart">
-    <ion-card-content class="contentstart">
-      <ion-item>
-        <div class="image">
-          <img src="assets/mylistImage/tomato.jpg">
-        </div>
-       <div class="labletext">
-        <ion-label >
-          <h3>Tomato</h3>
-             <h3> 1Kg = Rs 50</h3>
-        </ion-label>
-       </div>
-       
-        <div class="shoppingbutton">
-          <ion-button (click)="onClick()" fill="clear">
-            <ion-icon name="cart"></ion-icon>  
-          </ion-button>
-          </div>
-      </ion-item>
-    </ion-card-content>  
-  </ion-card>
-
-  
+  </ion-fab>
 </ion-content>
 
-<ion-footer>
-<div class="footerbutton">
-<ion-button full round (click)='getaddform()'> Add New Item </ion-button>
-</div>
-</ion-footer>
