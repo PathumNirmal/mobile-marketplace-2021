@@ -11,13 +11,16 @@ import {AngularFireModule} from '@angular/fire'
 import {AngularFireAuthModule} from '@angular/fire/auth'
 import {environment} from 'src/environments/environment'
 import {AngularFirestore} from '@angular/fire/firestore'
+import { ModalController } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
   AngularFireModule.initializeApp(environment.firebaseConfig)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    ModalController,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

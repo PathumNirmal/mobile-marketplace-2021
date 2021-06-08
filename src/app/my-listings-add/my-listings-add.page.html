@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary" class="addlist">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="my-listings"></ion-back-button>
-    </ion-buttons>
+    
     <ion-title class="adlisttitle">Add Your list</ion-title>
+    <ion-icon  name="close"slot="end" (click)="dismiss()" size="large"></ion-icon>
+    
+    
   </ion-toolbar>
 </ion-header>
 
@@ -12,15 +13,31 @@
     <img src="assets/noimage.jpg">
   </div>
 
-  <ion-item>
-    <ion-label position="floating">Enter Product Name</ion-label>
-    <ion-input  type ="text" [(ngModel)]="user.name"></ion-input>
-  </ion-item>
-   
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Enter Product Name</ion-label>
+      <ion-input  type ="text" [(ngModel)]="taskName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-lable position="floating"> Category </ion-lable>
+      <span class="listshow">{{taskType}}</span>
+    </ion-item>
+    <ion-chip *ngFor="let types of Categories ; let i = index" (click)="selectType(i)">
+      <ion-lable>{{types}}</ion-lable>
+
+    </ion-chip>
+
     <ion-item>
       <ion-label position="floating">Enter Product Price</ion-label>
-      <ion-input  type ="number" [(ngModel)]="user.Prize"></ion-input>
+      <ion-input  type ="number" [(ngModel)]="taskRate"></ion-input>
     </ion-item>
+
+  </ion-card>
+
+  
+   
+    
   
 
 
@@ -35,7 +52,7 @@
 
 <ion-footer>
   <div class="footeraddbutton">
-    <ion-button shape="round" fill="solid" (click)="getpublishdata()">Done</ion-button>
+    <ion-button shape="round" fill="solid" (click)="AddTask()">Done</ion-button>
   </div>
   
 </ion-footer>
