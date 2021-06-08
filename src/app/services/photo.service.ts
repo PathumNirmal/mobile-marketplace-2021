@@ -13,7 +13,7 @@ export class PhotoService {
   public photos: Photo[] = [];
 
   private PHOTO_STORAGE: string = "photos";
-
+  
   private async savePicture(cameraPhoto: CameraPhoto) {
       // Convert photo to base64 format, required by Filesystem API to save
     const base64Data = await this.readAsBase64(cameraPhoto);
@@ -31,7 +31,7 @@ export class PhotoService {
       webviewPath: cameraPhoto.webPath
     };
   }
-
+  
   // Use webPath to display the new image instead of base64 since it's
   private async readAsBase64(cameraPhoto: CameraPhoto) {
     // Fetch the photo, read as a blob, then convert to base64 format
@@ -50,7 +50,7 @@ export class PhotoService {
     reader.readAsDataURL(blob);
   });
   // already loaded into memory
-
+  
   public async addNewToGallery()
   {
   // Take a photo
@@ -66,12 +66,14 @@ export class PhotoService {
       filepath: "soon...",
       webviewPath: capturedPhoto.webPath
     });
+    
     Storage.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos)
     });
-
+    
   }
+  
   public async loadSaved() {
     // Retrieve cached photo array data
     const photoList = await Storage.get({ key: this.PHOTO_STORAGE });
@@ -91,6 +93,7 @@ export class PhotoService {
   
     // more to come...
   }
+  
   constructor() { }
 }
 export interface Photo {
