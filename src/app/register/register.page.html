@@ -26,6 +26,12 @@
             <ion-button class="btn_class" [disabled]="!registration_form.valid" color="secondary"  type="submit" (click)="signUp(registration_form.value)" expand="block">Register</ion-button>
             </ion-col>
           </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button class="btn_class"color="secondary" type="submit" (click)="guest()" expand="block">Sign Up as Guest</ion-button>
+            </ion-col>
+          </ion-row>
+
         </form>
        
       </div>
