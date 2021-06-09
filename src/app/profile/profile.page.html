@@ -1,10 +1,15 @@
 <ion-header>
+<<<<<<< HEAD
   <ion-toolbar>
+=======
+  <ion-toolbar id="head">
+>>>>>>> c64bc4719bf104bf24eaef2d3c5e178dec1fe233
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
   <div id="images">
     <div class="image" *ngFor="let post of (userData | async)?.posts">
       <ion-card>
@@ -16,6 +21,25 @@
     </div>
   </div>
   <form #loginForm="ngForm">
+=======
+  
+  <form #loginForm="ngForm">
+    
+    <ion-toolbar class="upload">
+      <ion-buttons>
+
+        <button ion-button icon-left (click)="presentActionSheet()" class="btn1">
+          <ion-icon name="camera"></ion-icon>Select Image
+        </button>
+
+        <button ion-button icon-left (click)="uploadImage()" 
+        [disabled]="lastImage=== null" class="btn2">
+          <ion-icon name="cloud-upload"></ion-icon>Upload
+        </button>
+
+      </ion-buttons>
+    </ion-toolbar>
+>>>>>>> c64bc4719bf104bf24eaef2d3c5e178dec1fe233
     <ion-list lines="none">
       <ion-item lines="none">
         <p class="intro">Name</p>

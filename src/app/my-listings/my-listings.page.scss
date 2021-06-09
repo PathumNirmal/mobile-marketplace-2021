@@ -1,9 +1,27 @@
 .listmenu{
     text-align: center;
     text-decoration: none;
+    
 }
 .footerbutton{
-    align-items: flex-end;
-    box-align: center;
+    float:right;
+   
     box-shadow:blueviolet;
 }
+.contentstart{
+    float:right;
+    margin-left: -13px;
+}
+
+.cardstart{
+    margin-left: 25px;
+    padding-left: unset;
+    padding-right: unset;
+    padding-inline-start: var(--padding-start);
+    padding-inline-end: var(--padding-end);
+}
+
+.cardstart .contentstart .image img{
+    margin-right: 40px;
+}
+
