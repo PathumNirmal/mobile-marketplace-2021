@@ -26,11 +26,16 @@
     margin-right: 20px;
 }
 
+.listshow{
+    margin-left: 30px;
+}
+
 .txt1, .txt2, .txt3{
     --padding-top: 20px;
     --padding-bottom: 0px;
     padding-left: 20px;
     font-size: large;
+    
 }
 
 .click{
@@ -42,7 +47,7 @@
 
 .footeraddbutton{
     //align-items: flex-end;
-    float:right;
+    float:center;
     margin-right: 20px;
     margin-bottom: 7px;
     margin-top: 7px;
