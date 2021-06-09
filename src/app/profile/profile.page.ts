@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../services/photo.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
