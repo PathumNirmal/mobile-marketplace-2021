@@ -1,27 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home test</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons>
+    <ion-title size="large">Home</ion-title>
+      <ion-button color="warning" class="logout" routerLink="/login" slot="end">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button> 
   </ion-toolbar>
 </ion-header>
 
+<ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  
 <ion-content>
-  <ion-searchbar #search debounce="500" (ionChange)="_ionChange($event)" showCancelButton="never"></ion-searchbar>
-  <ion-list>
-    <ion-card>
-      <ion-item *ngFor="let item of searchedItem">
-        <ion-thumbnail>
-          <ion-img src={{item.image}}></ion-img>
-        </ion-thumbnail>
-        <ion-label class="ion-text-wrap">
-          <h2 id="name">Name : {{item.title}} </h2>
-          <h2> Item type : {{item.veg}} </h2>
-          <h2> Rate for 1kg : {{item.rate}} </h2>
-        </ion-label>
-      </ion-item>
-    </ion-card>
-  </ion-list>
-
+  <div class="wrapper-flex">
+    <div class="container" *ngFor="let item of (itemList | async) | filter:filterTerm" routerLink="/detail/{{item.id}}">
+      <ion-card class="top-card">
+        <ion-img  class="img" [src]="item.image"></ion-img>
+        <ion-card-header class="topic">
+          <ion-card-title>{{ item.itemName}}</ion-card-title>
+          <ion-card-subtitle class="sub-topic">Rs.{{ item.itemPrice }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
