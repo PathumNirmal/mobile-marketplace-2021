@@ -26,31 +26,3 @@
   <ion-button color="success" expand="block" shape="round" (click)="editProfile()">Edit Profile</ion-button>
   <ion-button color="danger" expand="block" shape="round" (click)="logout()">Sign Out</ion-button>
 </ion-content>
-<ion-header>
-  <ion-toolbar>
-    <ion-title size="large">Profile</ion-title>
-      <ion-button color="warning" class="home" routerLink="../home" slot="end">
-        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
-      </ion-button> 
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-
-  <div class="container">
-    <div class="overlay">
-      <div>
-        <img src="{{user?.photoUrl}}">
-      </div>
-    </div>
-  </div>
-  <div class="text">
-    <h2>{{user?.userName}}</h2>
-    <p>{{user?.userEmail}}</p>
-    <p>{{user?.userPhone}}</p>
-    <p hidden="true">Account Created at: {{user?.createdAt | date}}</p>
-  </div>
-
-  <ion-button color="success" expand="block" shape="round" (click)="editProfile()">Edit Profile</ion-button>
-  <ion-button color="danger" expand="block" shape="round" (click)="logout()">Sign Out</ion-button>
-</ion-content>

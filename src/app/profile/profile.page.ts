@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../services/photo.service';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +9,29 @@ import { PhotoService } from '../services/photo.service';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(public photoService: PhotoService) { }
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+  user: any;
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.auth.user$.subscribe(user => {
+      this.user = user;
+    })
   }
-  async ngOnInit() {
-    await this.photoService.loadSaved();
+
+  editProfile(){
+    this.router.navigate(['/profile/edit']);
+  }
+
+  logout(){
+    this.auth.signOut();
+  }
+
+  addItem(){
+    this.router.navigate(['/my-listings-add'])
   }
 
 }
