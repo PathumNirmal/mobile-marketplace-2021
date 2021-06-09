@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large">{{ item?.itemName }}</ion-title>
+      <ion-button color="warning" class="back" routerLink="../../tabs/home" slot="end">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-img [src]="item?.image"></ion-img>
+  <h3 class="prh">Rs. {{ item?.itemPrice }}</h3>
+
+  <h3 class="pr1">Description</h3>
+  <p class="pr">{{ item?.itemDescription }}</p>
+  
+  <p hidden=true>{{ item?.itemCategory }}</p>
+
+  <p hidden=true>{{ item?.itemStock }}</p>
+
+  <ion-button color="success" class="btn" (click)="addToCart()">
+    Add to Cart-- <ion-icon name="cart-outline"></ion-icon>
+  </ion-button>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large">Edit Profile</ion-title>
+      <ion-button color="warning" class="back" routerLink="/tabs/profile" slot="end">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+      <ion-item class="text">
+        <ion-label position="stacked">Upload Your Image</ion-label>
+        <ion-button expand="full" *ngIf="!isLoading && !isLoaded" class="ion-text-center">
+          <ion-icon slot="start" lazy="true" name="image"></ion-icon>
+          <input type="file" (change)="uploadImagetoFirebase($event)" id="file-input" accept="image/png, image/jpg">
+        </ion-button>
+      
+        <ion-card *ngIf="isLoading && !isLoaded">
+          <ion-card-content *ngIf="percentage | async as percent">
+            Progress: {{percent | number}}%
+            <ion-progress-bar value="{{percent / 100}}"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+      
+      <ion-item class="text">
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input required type="text" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item class="text">
+        <ion-label position="stacked">Phone</ion-label>
+        <ion-input required type="tel" [(ngModel)]="phone" name="phone"></ion-input>
+      </ion-item>
+
+      <ion-button class="foot" color="success" type="submit" expand="block" (click)="updateProfile()">Update</ion-button>
+</ion-content>
