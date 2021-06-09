@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {ModalController} from '@ionic/angular'
-import { MyListingsAddPage } from '../my-listings-add/my-listings-add.page';
+import { FirestoreService } from '../services/data/firestore.service';
+import { AuthService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-my-listings',
@@ -10,45 +10,30 @@ import { MyListingsAddPage } from '../my-listings-add/my-listings-add.page';
 })
 export class MyListingsPage implements OnInit {
 
-  todolist =[
-    /*{
-  // itemImage :"assets/mylistImage/Cucumbera.jpg",
-    itemName : 'Cucumbera',
-    itemType : 'Vegetable',
-    itemRate : '100'
-  },
-  {
-   // itemImage :"assets/mylistImage/tomato.jpg",
-    itemName : 'Tomato',
-    itemType : 'Vegetable',
-    itemRate : '50'
-  },
-  {
-    //itemImage :"assets/mylistImage/brocoli.jpg",
-    itemName : 'Brocoli',
-    itemType : 'Vegetable',
-    itemRate : '200'
-  }c */
-]
+  user;
+  data;
 
-  constructor( private router:Router,public modalCtrl:ModalController) { }
+  constructor(
+    private router: Router,
+    private fs: FirestoreService,
+    private auth: AuthService
 
- async addTask(){
-  //  this.router.navigate(['my-listings-add']);
-  const modal = await this.modalCtrl.create({
-   component:MyListingsAddPage
-  })
-  
-   modal.onDidDismiss().then(newTaskobj =>{
-     // console.log(newTaskobj.data);
-     this.todolist.push(newTaskobj.data)
+  ) { 
+    this.auth.getUser().subscribe(user => {
+      this.user = user;
+
+      this.fs.getUserListing(this.user.uid).subscribe( res => {
+        this.data = res;
+      })
     })
-    
-   return (await modal).present();
-   // return await modal.present()
   }
 
   ngOnInit() {
   }
+
+  addItem(){
+    this.router.navigate(['/my-listings-add'])
+  }
+
 
 }
