@@ -1,36 +1,29 @@
 <ion-header>
-  <ion-toolbar color="primary" class="listmenu">
-    <ion-title>mylistings</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
+  <ion-toolbar>
+    <ion-title size="large">My Listings</ion-title>
+      <ion-button color="warning" class="home" routerLink="../home" slot="end">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button> 
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-card *ngFor="let item of todolist">
-    <ion-card-header>
-      <ion-card-subtittle>
-        {{item.itemName}}
-      </ion-card-subtittle> 
-      
-    </ion-card-header>
-    <ion-card-content class="text11">
-      <ion-row>
-        <ion-item><ion-lable>{{item.itemType}}</ion-lable></ion-item>
-        <ion-item><ion-lable>{{item.itemRate}}</ion-lable></ion-item>
-      </ion-row>
-      
-    </ion-card-content>
-  </ion-card>
- 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="addTask()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-
-  </ion-fab>
+<ion-content>
+  <div class="container">
+    <div class="card" *ngFor="let item of data"
+      routerLink="/detail/{{item.id}}">
+        <ion-thumbnail>
+          <ion-img  class="img" [src]="item.image"></ion-img>
+        </ion-thumbnail>
+        <div style="padding-left: 70px;">
+          <ion-label>
+            <h2>{{ item.itemName}}</h2>
+            <p>Item Price: Rs.{{ item.itemPrice }}</p>
+          </ion-label>
+      </div>
+    </div>
+  </div>
 </ion-content>
 
+<ion-footer>
+  <ion-button color="warning" class="add" (click)="addItem()">Add New</ion-button>
+</ion-footer>

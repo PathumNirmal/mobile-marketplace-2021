@@ -1,54 +1,19 @@
-.addlist .adlisttitle{
+ion-title{
     text-align: center;
+    color: orange;
 }
 
-.addlist{
-    --padding-top:7px;
-    --padding-bottom:7px;
-}
-
-.imageshow{
-    display: block;
-    margin-top: -20px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-    width: 300px;
-    border: blueviolet;
-    border-radius: 2ex;
-}
-
-.inputtextarea1{
-    margin-top: 40px;
-}
-
-.inputtextarea1, .inputtextarea2, .inputtextarea3{
+form{
+    margin-top: 50px;
+    margin-left: 20px;
     margin-right: 20px;
 }
 
-.listshow{
-    margin-left: 30px;
+.text-area{
+    margin-left: 20px;
+    font-size: 18px;
 }
 
-.txt1, .txt2, .txt3{
-    --padding-top: 20px;
-    --padding-bottom: 0px;
-    padding-left: 20px;
-    font-size: large;
-    
+ion-input{
+    margin-bottom: 10px;
 }
-
-.click{
-    margin-top: 30px;
-    margin-left: 40px;
-    margin-right: 40px;
-    //font-size: large;
-}
-
-.footeraddbutton{
-    //align-items: flex-end;
-    float:center;
-    margin-right: 20px;
-    margin-bottom: 7px;
-    margin-top: 7px;
- }
